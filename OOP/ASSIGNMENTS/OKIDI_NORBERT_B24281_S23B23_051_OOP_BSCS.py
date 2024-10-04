@@ -85,3 +85,52 @@ display_info(car)
     # Reusability: OOP allows inheritance and polymorphism, making it easier to reuse code across different classes.
     # Maintainability: With encapsulation and abstraction, OOP systems are easier to maintain and 
                      # extend compared to procedural systems where functions are scattered.
+
+
+
+
+
+
+#      ASSIGNMENT FROM THE SLIDES
+class StudentManagement:
+    def __init__(self):
+        self.students = {}
+
+    def add_student(self, student_id, name):
+        # Adds a new student to the system
+        if student_id in self.students:
+            raise ValueError("Student ID already exists.")
+        self.students[student_id] = name
+        print(f"\nStudent {name} added with ID {student_id}.")
+
+    def update_student(self, student_id, new_name):
+        #Updates the name of an existing student
+        if student_id not in self.students:
+            raise ValueError("Student ID not found.")
+        self.students[student_id] = new_name
+        print(f"Student {student_id} updated to {new_name}.")
+
+    def delete_student(self, student_id):
+        #Deletes a student from the system
+        if student_id not in self.students:
+            raise ValueError("Student ID not found.")
+        del self.students[student_id]
+        print(f"Student {student_id} has been deleted.")
+
+    def get_student(self, student_id):
+        #Retrieves a student's details by their ID
+        if student_id not in self.students:
+            raise ValueError("Student ID not found.")
+        return self.students[student_id]
+
+# Example usage
+try:
+    sm = StudentManagement()
+    sm.add_student(1, "okidi norbert")
+    sm.update_student(1, "Norbert Okidi")
+    print(f"\n{sm.get_student(1)}")
+    sm.delete_student(1)
+    sm.get_student(1)  # This will raise an exception as the student no longer exists
+except ValueError as e:
+    print(f"Error: {e}")
+                     
