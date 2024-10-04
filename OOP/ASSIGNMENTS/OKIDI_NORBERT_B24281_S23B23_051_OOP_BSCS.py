@@ -91,17 +91,19 @@ display_info(car)
 
 
 
-#      ASSIGNMENT FROM THE SLIDES
+#                ASSIGNMENT FROM THE SLIDES
 class StudentManagement:
     def __init__(self):
         self.students = {}
+        #i used a dictionary that stores student_id as the key and the student_name as the value
 
     def add_student(self, student_id, name):
         # Adds a new student to the system
         if student_id in self.students:
             raise ValueError("Student ID already exists.")
         self.students[student_id] = name
-        print(f"\nStudent {name} added with ID {student_id}.")
+        #stores data as   key   :   value
+        print(f"Student {name} added with ID {student_id}.")
 
     def update_student(self, student_id, new_name):
         #Updates the name of an existing student
@@ -117,6 +119,7 @@ class StudentManagement:
         del self.students[student_id]
         print(f"Student {student_id} has been deleted.")
 
+    #Extra method ('_') 
     def get_student(self, student_id):
         #Retrieves a student's details by their ID
         if student_id not in self.students:
@@ -124,13 +127,14 @@ class StudentManagement:
         return self.students[student_id]
 
 # Example usage
+print("\n**************Student Management:.******************************")
 try:
-    sm = StudentManagement()
-    sm.add_student(1, "okidi norbert")
-    sm.update_student(1, "Norbert Okidi")
-    print(f"\n{sm.get_student(1)}")
-    sm.delete_student(1)
-    sm.get_student(1)  # This will raise an exception as the student no longer exists
+    admin = StudentManagement()
+    admin.add_student(1, "okidi norbert")
+    admin.update_student(1, "Norbert Okidi")
+    print(f"\n{admin.get_student(1)}")
+    admin.delete_student(1)
+    admin.get_student(1)  # This will raise an exception as the student no longer exists
 except ValueError as e:
     print(f"Error: {e}")
                      
