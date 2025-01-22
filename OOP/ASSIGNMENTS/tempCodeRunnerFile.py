@@ -1,1 +1,0 @@
- # print(f"\n{admin.get_student("B24281")}")
